@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Week from "./Week";
 
 const Circle = (props) => {
-    const [points, setPoints] = React.useState(1);
+    const [points, setPoints] = React.useState(-1);
 
     const getRandom = (min, max) =>
         Math.floor(Math.random() * (max - min) + min);
@@ -16,11 +16,6 @@ const Circle = (props) => {
         getRandom(1, 10),
         getRandom(1, 10),
     ].sort();
-
-    const qwer = () => {
-        const element = document.getElementById("good");
-        console.log(element.innerText);
-    };
 
     // 스타일 바꿔주기
     // const [style, setStyle] = useState(Score);
@@ -42,11 +37,13 @@ const Circle = (props) => {
         return num_list.map((num, index) => {
             if (num < 7) {
                 return (
-                    <Score style={{ backgroundColor: "#60e5b9" }}>{num}</Score>
+                    <Score key={index} style={{ backgroundColor: "#60e5b9" }}>
+                        {num}
+                    </Score>
                 );
             } else {
                 return (
-                    <Score style={{ backgroundColor: "lightgray" }}>
+                    <Score key={index} style={{ backgroundColor: "lightgray" }}>
                         {num}
                     </Score>
                 );
@@ -56,11 +53,13 @@ const Circle = (props) => {
         return num_list.map((num, index) => {
             return (
                 <Score
-                    style={{ backgroundColor: "lightgray" }}
+                    style={{
+                        backgroundColor:
+                            index >= points + 1 ? "lightgray" : "#60e5b9",
+                    }}
                     // ref={my_circle}
-                    onClick={qwer}
+                    onClick={() => setPoints(index)}
                     key={index}
-                    id="good"
                 >
                     {num}
                 </Score>

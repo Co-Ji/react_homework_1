@@ -14,14 +14,9 @@ const Week = (props) => {
     return day_list.map((list, index) => {
         return (
             <>
-                <WeekBox>
-                    <Day>{list}</Day>
-                    <Circle
-                        abc={abc}
-                        // style={{
-                        //     backgroundColor: "red",
-                        // }}
-                    />
+                <WeekBox key={index}>
+                    <Day key={index}>{list}</Day>
+                    <Circle abc={abc} />
 
                     <Triangle
                         onClick={() => {
