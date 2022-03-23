@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled from "styled-components";
+import { Route } from "react-router-dom";
+import Week from "./Week";
+import Score from "./Score";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <Container>
+            <h2 style={{ textAlign: "center" }}>내 일주일은?</h2>
+            <Route path="/" exact component={Week} />
+            <Route path="/score/:day_name" component={Score} />
+        </Container>
+    );
+};
+
+const Container = styled.div`
+    background: aliceblue;
+    width: 80vw;
+    max-width: 400px;
+    height: 90vh;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
 
 export default App;
