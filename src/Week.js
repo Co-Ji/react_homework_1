@@ -9,7 +9,23 @@ import Circle from "./Circle";
 const Week = (props) => {
     let history = useHistory();
 
-    const day_list = ["월", "화", "수", "목", "금", "토", "일"];
+    //추가 기능 (요일 순 정렬)
+    const today = new Date().getDay();
+
+    const day_name = (num) => {
+        const names = ["일", "월", "화", "수", "목", "금", "토"];
+        return names[num];
+    };
+
+    const day_list = [];
+
+    for (let i = 0; i < 7; i++) {
+        today + i < 7
+            ? day_list.push(day_name(today + i))
+            : day_list.push(day_name(today + i - 7));
+    }
+
+    //추가 기능 (요일 순 정렬 끝)
 
     return day_list.map((list, index) => {
         return (
