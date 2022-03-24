@@ -17,7 +17,7 @@ const Circle = (props) => {
     //main의 평점이 무작위로 주어저야 하기 때문에 1~9까지의 난수를 생성해 배열을 만든다.
     //sort는 무작위 평점이라도 낮은 쪽 부터 색이 바뀌도록 하기 위해서이다.
     //무작위 배열 짧게 고칠 수 있을까?
-    //if문으로 참, else를 나눠 참인 경우(week에서 props를 받는다. )
+    //if문으로 참, else를 나눠 참인 경우(week에서 props를 받는다.(이것도props인지?) )
     // 7미만일 때와 7이상일 때 원의 색을 다르게 했다. (랜덤이라도 평점이 너무 낮으면 좀 그렇다.)
     // else인 경우 원 배열의 index와 state의 값을 비교해 각각의 원의 색이 결정된다.
     // state는 onclick을 사용해 클릭하면 클릭한 index의 값으로 setState하도록 했다.
@@ -27,13 +27,19 @@ const Circle = (props) => {
         return num_list.map((num, index) => {
             if (num < 7) {
                 return (
-                    <Score key={index} style={{ backgroundColor: "#60e5b9" }}>
+                    <Score
+                        key={index * 537}
+                        style={{ backgroundColor: "#60e5b9" }}
+                    >
                         {num}
                     </Score>
                 );
             } else {
                 return (
-                    <Score key={index} style={{ backgroundColor: "lightgray" }}>
+                    <Score
+                        key={index + 12324}
+                        style={{ backgroundColor: "lightgray" }}
+                    >
                         {num}
                     </Score>
                 );
@@ -48,7 +54,7 @@ const Circle = (props) => {
                             index > points ? "lightgray" : "#60e5b9",
                     }}
                     onClick={() => setPoints(index)}
-                    key={index}
+                    key={index + num}
                 >
                     {num}
                 </Score>

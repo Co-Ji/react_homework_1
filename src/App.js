@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Week from "./Week";
 import Score from "./Score";
+import NotFound from "./NotFound";
 
 // 총 4개의 컴포넌트로 구성:
 // Circle: 각각의 작은 원을 모아 다음 컴포넌트로 보낸다.
@@ -14,9 +15,14 @@ import Score from "./Score";
 const App = () => {
     return (
         <Container>
-            <h2 style={{ textAlign: "center" }}>내 일주일은?</h2>
-            <Route path="/" exact component={Week} />
-            <Route path="/score/:day_name" component={Score} />
+            <h2 style={{ textAlign: "center" }}>나의 일주일은?</h2>
+            <Switch>
+                <Route path="/" exact component={Week} />
+                <Route path="/score/:day_name" component={Score} />
+                <Route>
+                    <NotFound />
+                </Route>
+            </Switch>
         </Container>
     );
 };
