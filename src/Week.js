@@ -24,7 +24,6 @@ const Week = (props) => {
             ? day_list.push(day_name(today + i))
             : day_list.push(day_name(today + i - 7));
     }
-
     //추가 기능 (요일 순 정렬 끝)
 
     return day_list.map((list, index) => {

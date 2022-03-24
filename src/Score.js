@@ -10,7 +10,12 @@ const Score = (props) => {
     //onclick으로 Week로 다시 연결된다.
     return (
         <Container>
-            <div>{dayName}요일 평점 남기기</div>
+            <div>
+                <span style={{ color: "deepskyblue", fontSize: "20px" }}>
+                    {dayName}요일
+                </span>{" "}
+                평점 남기기
+            </div>
             <ScoreBox>
                 <Circle />
             </ScoreBox>
